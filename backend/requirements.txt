@@ -1,0 +1,37 @@
+# ============================================================
+# Hospital AI Assistant – Python dependencies
+# ============================================================
+# Install with:  pip install -r requirements.txt
+# GPU note: PyTorch is pinned to the CPU-only index here.
+# For CUDA 12.x, replace the torch line with:
+#   torch==2.3.1+cu121  --index-url https://download.pytorch.org/whl/cu121
+
+# ----- Web framework -----
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+python-multipart==0.0.20      # Required for Form / File uploads in FastAPI
+
+# ----- Data validation -----
+pydantic==2.10.4
+
+# ----- AI / ML -----
+transformers==4.48.3
+# CPU-only torch – swap the line below for a CUDA wheel if you have a GPU
+torch==2.5.1
+accelerate==1.2.1             # Enables device_map="auto" for model sharding
+huggingface_hub==0.27.1       # Model download / caching
+
+# ----- Image processing -----
+Pillow==11.1.0
+opencv-python-headless==4.10.0.84
+
+# ----- PDF extraction -----
+pdfplumber==0.11.4            # Primary PDF extractor
+PyMuPDF==1.25.1               # Fallback PDF extractor (fitz)
+
+# ----- Utilities -----
+python-dotenv==1.0.1          # .env file support
+
+# ----- Medical imaging -----
+pydicom==3.0.1
+numpy==2.2.2

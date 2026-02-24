@@ -1,0 +1,27 @@
+# ==========================================
+# HOSPITAL AI BACKEND REQUIREMENTS
+# ==========================================
+
+# 1. API Framework & File Uploads
+fastapi
+uvicorn
+python-multipart  # Required by FastAPI for File() and Form() uploads
+
+# 2. Database (SQLite)
+sqlalchemy
+
+# 3. Document Extraction (PDF & OCR)
+pymupdf           # Imports as 'fitz' for PDF parsing
+Pillow            # Image handling
+pytesseract       # Python wrapper for Tesseract OCR
+
+# 4. AI Engine & GPU Memory Management
+# WARNING: MedGemma 1.5 requires torch>=2.6.0 and or_mask_function support.
+# We force pip to pull the CUDA 12.4 version to prevent infinite CPU thrashing.
+--extra-index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0+cu124
+torchvision
+torchaudio
+transformers
+accelerate        # Required for device_map {"": 0} to work
+bitsandbytes      # Required for 4-bit (NF4) model quantization
